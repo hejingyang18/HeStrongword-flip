@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HeStrong Word Flip · 背单词闪卡</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>HeStrong Word Flip</h1>
+    <p class="subtitle">点卡片翻面 · 认识就过，不认识再背一轮</p>
+  </header>
+
+  <main>
+    <div class="progress-bar">
+      <span id="progress-text">准备中…</span>
+      <div class="bar"><div id="bar-fill"></div></div>
+    </div>
+
+    <div id="card" class="card" tabindex="0">
+      <div class="card-inner">
+        <div class="card-face card-front">
+          <div class="word" id="word-text">word</div>
+          <div class="hint">点击卡片看释义</div>
+        </div>
+        <div class="card-face card-back">
+          <div class="meaning" id="meaning-text">meaning</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="actions">
+      <button id="btn-unknown" class="btn btn-unknown">不认识</button>
+      <button id="btn-known" class="btn btn-known">认识</button>
+    </div>
+
+    <div id="done" class="done hidden">
+      <h2>🎉 本轮全部掌握！</h2>
+      <p id="done-text"></p>
+      <button id="btn-restart" class="btn btn-restart">清空进度，重新开始</button>
+    </div>
+  </main>
+
+  <footer>
+    <span id="total-count"></span>
+  </footer>
+
+  <script src="words.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

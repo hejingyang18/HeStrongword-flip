@@ -1,0 +1,73 @@
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 24px 16px;
+  color: #2c3e50;
+}
+
+header { text-align: center; color: #fff; margin-bottom: 24px; }
+header h1 { font-size: 28px; letter-spacing: 1px; }
+.subtitle { opacity: 0.85; margin-top: 6px; font-size: 14px; }
+
+main { width: 100%; max-width: 480px; }
+
+.progress-bar { margin-bottom: 16px; color: #fff; font-size: 13px; }
+.bar { height: 6px; background: rgba(255,255,255,0.25); border-radius: 3px; margin-top: 6px; overflow: hidden; }
+#bar-fill { height: 100%; width: 0; background: #fff; transition: width 0.3s; }
+
+.card {
+  width: 100%;
+  height: 280px;
+  perspective: 1000px;
+  cursor: pointer;
+  outline: none;
+}
+.card-inner {
+  position: relative;
+  width: 100%; height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 0.5s;
+}
+.card.flipped .card-inner { transform: rotateY(180deg); }
+
+.card-face {
+  position: absolute; inset: 0;
+  backface-visibility: hidden;
+  border-radius: 16px;
+  background: #fff;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  padding: 24px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+.card-back { transform: rotateY(180deg); background: #f0f4ff; }
+
+.word { font-size: 42px; font-weight: 700; color: #2c3e50; }
+.meaning { font-size: 22px; color: #4a5568; text-align: center; line-height: 1.6; }
+.hint { margin-top: 16px; font-size: 13px; color: #a0aec0; }
+
+.actions { display: flex; gap: 12px; margin-top: 20px; }
+.btn {
+  flex: 1; padding: 14px; font-size: 16px; border: none; border-radius: 10px;
+  cursor: pointer; font-weight: 600; color: #fff; transition: opacity 0.2s;
+}
+.btn:hover { opacity: 0.9; }
+.btn-unknown { background: #e53e3e; }
+.btn-known { background: #38a169; }
+.btn-restart { background: #4a5568; flex: none; padding: 10px 20px; }
+
+.done {
+  background: #fff; border-radius: 16px; padding: 32px; text-align: center;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+.done h2 { font-size: 22px; margin-bottom: 10px; }
+.done p { color: #718096; margin-bottom: 18px; }
+.hidden { display: none; }
+
+footer { margin-top: 24px; color: rgba(255,255,255,0.8); font-size: 13px; }
