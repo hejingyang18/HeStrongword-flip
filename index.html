@@ -8,11 +8,19 @@
 </head>
 <body>
   <header>
-    <h1>HeStrong Word Flip</h1>
+    <div class="header-row">
+      <h1>HeStrong Word Flip</h1>
+      <button id="theme-toggle" class="icon-btn" title="切换深色 / 浅色模式" aria-label="切换主题">🌙</button>
+    </div>
     <p class="subtitle">点卡片翻面 · 认识就过，不认识再背一轮</p>
   </header>
 
   <main>
+    <div class="toolbar">
+      <label for="list-select" class="toolbar-label">词表</label>
+      <select id="list-select" class="list-select"></select>
+    </div>
+
     <div class="progress-bar">
       <span id="progress-text">准备中…</span>
       <div class="bar"><div id="bar-fill"></div></div>
@@ -21,8 +29,11 @@
     <div id="card" class="card" tabindex="0">
       <div class="card-inner">
         <div class="card-face card-front">
-          <div class="word" id="word-text">word</div>
-          <div class="hint">点击卡片看释义</div>
+          <div class="word-row">
+            <div class="word" id="word-text">word</div>
+            <button id="btn-speak" class="icon-btn speak-btn" title="播放发音" aria-label="播放发音">🔊</button>
+          </div>
+          <div class="hint">点击卡片看释义 · 按 左右方向键 认识/不认识</div>
         </div>
         <div class="card-face card-back">
           <div class="meaning" id="meaning-text">meaning</div>

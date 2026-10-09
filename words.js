@@ -1,6 +1,10 @@
-// 词库：以后想扩充，直接往这个数组里加 { word: "xxx", meaning: "xxx" } 就行
-// 也可以以后拆成多个词表文件，按词表名切换
-const WORDS = [
+// ===== 词库（多词表）=====
+// 每个词表是 { 词表id: { name: "显示名", words: [ { word, meaning }, ... ] } }
+// 想加新词表（如 CET4 / 考研 / 雅思），在 WORD_LISTS 里按同样格式追加一组即可。
+const WORD_LISTS = {
+  hsf_core300: {
+    name: "高频核心 300",
+    words: [
   { word: "abandon", meaning: "v. 放弃；遗弃" },
   { word: "ability", meaning: "n. 能力；才能" },
   { word: "absorb", meaning: "v. 吸收；吸引" },
@@ -301,4 +305,11 @@ const WORDS = [
   { word: "intellectual", meaning: "adj. 智力的 n. 知识分子" },
   { word: "intelligent", meaning: "adj. 聪明的" },
   { word: "intense", meaning: "adj. 强烈的" }
-];
+    ]
+  }
+  // ---- 新增词表示例（复制下面两行到上方列表里，改 id 和 name，再粘贴词条）----
+  // ,cet4: { name: "CET4", words: [ { word: "xxx", meaning: "xxx" } ] }
+};
+
+// 默认词表 id（首次打开时使用的词表）
+const DEFAULT_LIST_ID = "hsf_core300";
