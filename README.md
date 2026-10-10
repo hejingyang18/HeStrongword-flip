@@ -11,7 +11,7 @@
 - 📚 内置 300 个高频英语词汇
 
 ## 使用方法
-在线版（GitHub Pages）：<待部署后填入链接>
+在线版（GitHub Pages）：https://hejingyang18.github.io/HeStrongword-flip/
 
 本地运行：直接用浏览器打开 `index.html` 即可，不需要任何服务器。
 
