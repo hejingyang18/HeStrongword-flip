@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>HeStrong Word Flip · 背单词闪卡</title>
+  <title>HeStrong Word Flip · 闯关背单词</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
@@ -12,45 +12,62 @@
       <h1>HeStrong Word Flip</h1>
       <button id="theme-toggle" class="icon-btn" title="切换深色 / 浅色模式" aria-label="切换主题">🌙</button>
     </div>
-    <p class="subtitle">点卡片翻面 · 认识就过，不认识再背一轮</p>
+    <p class="subtitle">闯关背单词 · 正确率超过 90% 即可解锁下一关</p>
   </header>
 
   <main>
-    <div class="toolbar">
-      <label for="list-select" class="toolbar-label">词表</label>
-      <select id="list-select" class="list-select"></select>
-    </div>
+    <!-- 关卡列表 -->
+    <section id="level-view">
+      <div class="progress-bar">
+        <span id="level-overview">加载中…</span>
+      </div>
+      <div id="level-list" class="level-list"></div>
+    </section>
 
-    <div class="progress-bar">
-      <span id="progress-text">准备中…</span>
-      <div class="bar"><div id="bar-fill"></div></div>
-    </div>
+    <!-- 闯关进行中 -->
+    <section id="play-view" class="hidden">
+      <div class="toolbar">
+        <button id="btn-back" class="btn-back" title="返回关卡列表">← 返回</button>
+        <span id="level-badge" class="level-badge"></span>
+        <button id="btn-speak" class="icon-btn speak-btn" title="播放发音" aria-label="播放发音">🔊</button>
+      </div>
 
-    <div id="card" class="card" tabindex="0">
-      <div class="card-inner">
-        <div class="card-face card-front">
-          <div class="word-row">
-            <div class="word" id="word-text">word</div>
-            <button id="btn-speak" class="icon-btn speak-btn" title="播放发音" aria-label="播放发音">🔊</button>
+      <div class="progress-bar">
+        <span id="play-progress">准备中…</span>
+        <div class="bar"><div id="bar-fill"></div></div>
+      </div>
+
+      <div id="card" class="card" tabindex="0">
+        <div class="card-inner">
+          <div class="card-face card-front">
+            <div class="word-row">
+              <div class="word" id="word-text">word</div>
+            </div>
+            <div class="hint">点击卡片看释义 · 认识就点「认识」，不认识点「不认识」</div>
           </div>
-          <div class="hint">点击卡片看释义 · 按 左右方向键 认识/不认识</div>
-        </div>
-        <div class="card-face card-back">
-          <div class="meaning" id="meaning-text">meaning</div>
+          <div class="card-face card-back">
+            <div class="meaning" id="meaning-text">meaning</div>
+          </div>
         </div>
       </div>
-    </div>
 
-    <div class="actions">
-      <button id="btn-unknown" class="btn btn-unknown">不认识</button>
-      <button id="btn-known" class="btn btn-known">认识</button>
-    </div>
+      <div class="actions">
+        <button id="btn-unknown" class="btn btn-unknown">不认识</button>
+        <button id="btn-known" class="btn btn-known">认识</button>
+      </div>
+    </section>
 
-    <div id="done" class="done hidden">
-      <h2>🎉 本轮全部掌握！</h2>
-      <p id="done-text"></p>
-      <button id="btn-restart" class="btn btn-restart">清空进度，重新开始</button>
-    </div>
+    <!-- 通关结果 -->
+    <section id="result-view" class="hidden">
+      <div class="done">
+        <h2 id="result-title"></h2>
+        <p id="result-text"></p>
+        <div class="actions result-actions">
+          <button id="btn-retry" class="btn btn-restart">重玩本关</button>
+          <button id="btn-next" class="btn btn-known">下一关</button>
+        </div>
+      </div>
+    </section>
   </main>
 
   <footer>
