@@ -63,14 +63,36 @@ main { width: 100%; max-width: 480px; }
 .speak-btn { width: 42px; height: 42px; font-size: 20px; }
 .speak-disabled { opacity: 0.3; pointer-events: none; }
 
-/* 词表切换 */
+/* 闯关 · 顶部工具条 */
 .toolbar { margin-bottom: 16px; display: flex; align-items: center; gap: 8px; font-size: 13px; }
-.toolbar-label { opacity: 0.85; }
-.list-select {
-  background: var(--select-bg); color: var(--select-color);
-  border: none; border-radius: 8px; padding: 6px 10px; font-size: 14px;
-  font-weight: 600; cursor: pointer; outline: none;
+.btn-back {
+  border: none; cursor: pointer; font-size: 14px;
+  background: var(--icon-btn-bg); color: var(--page-text);
+  border-radius: 8px; padding: 6px 12px; flex: none;
 }
+.btn-back:hover { opacity: 0.85; }
+.level-badge { font-weight: 700; flex: 1; text-align: center; color: var(--page-text); }
+
+/* 闯关 · 关卡列表 */
+.level-list { display: flex; flex-direction: column; gap: 12px; margin-top: 8px; }
+.level-card {
+  width: 100%; text-align: left; cursor: pointer;
+  background: var(--card-bg); color: var(--word-color);
+  border: none; border-radius: 14px; padding: 16px 18px;
+  box-shadow: 0 6px 18px var(--shadow);
+  transition: transform 0.15s, opacity 0.2s;
+}
+.level-card:hover:not(:disabled) { transform: translateY(-2px); }
+.level-card.locked { opacity: 0.55; cursor: not-allowed; filter: grayscale(0.6); }
+.level-card.cleared { border-left: 4px solid #38a169; }
+.level-card-top { display: flex; align-items: center; gap: 10px; }
+.level-no {
+  width: 30px; height: 30px; border-radius: 50%; flex: none;
+  display: inline-flex; align-items: center; justify-content: center;
+  background: var(--icon-btn-bg); font-weight: 700; font-size: 14px;
+}
+.level-name { font-size: 17px; font-weight: 700; }
+.level-meta { margin-top: 6px; font-size: 13px; color: var(--meaning-color); }
 
 .progress-bar { margin-bottom: 16px; color: var(--page-text); font-size: 13px; }
 .bar { height: 6px; background: rgba(255,255,255,0.25); border-radius: 3px; margin-top: 6px; overflow: hidden; }
@@ -117,6 +139,8 @@ main { width: 100%; max-width: 480px; }
 .btn-unknown { background: #e53e3e; }
 .btn-known { background: #38a169; }
 .btn-restart { background: #4a5568; flex: none; padding: 10px 20px; }
+.result-actions { display: flex; gap: 12px; }
+.result-actions .btn { flex: 1; }
 
 .done {
   background: var(--done-bg); border-radius: 16px; padding: 32px; text-align: center;
